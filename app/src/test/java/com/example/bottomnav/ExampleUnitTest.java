@@ -1,4 +1,4 @@
-package com.example.assignment2;
+package com.example.bottomnav;
 
 import org.junit.Test;
 
