@@ -31,7 +31,6 @@ import org.json.JSONObject;
 
 public class MoviesFragment extends Fragment {
 
-    private MoviesViewModel moviesViewModel;
     private RequestQueue mQueue;
     private EditText et_movieName;
     private TextView tv_movieInfo;
@@ -39,8 +38,7 @@ public class MoviesFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        moviesViewModel =
-                ViewModelProviders.of(this).get(MoviesViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_movies, container, false);
 
         et_movieName = root.findViewById(R.id.et_movieName);
@@ -52,14 +50,12 @@ public class MoviesFragment extends Fragment {
             public void onClick(View v) {
                 mQueue = Volley.newRequestQueue(v.getContext());
                 jsonParse();
-                tv_movieInfo.append("Hi there!");
             }
         });
         return root;
     }
 
     private void jsonParse() {
-        tv_movieInfo.append("Hi from json!");
         String baseUrl = "https://api.themoviedb.org/3/search/movie?api_key=779794aaf1c8685d78e35a03f57b923f&query=";
         String movieName = et_movieName.getText().toString();
         String url = baseUrl + movieName;
