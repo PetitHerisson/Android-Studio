@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_movies"
         android:name="com.example.bottomnav.ui.movies.MoviesFragment"
-        android:label="@string/title_dashboard"
+        android:label="Movies"
         tools:layout="@layout/fragment_movies" />
 
     <fragment
