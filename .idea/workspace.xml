@@ -60,7 +60,7 @@
     <property name="ExportApk.SignV2" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Exercise_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Mini-Project" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -166,10 +166,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="627" y="225" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1601891527106" />
-    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1603108137991">
+    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1603108748436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603108137991" />
+    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603108748436" />
     <state width="745" height="168" key="GridCell.Tab.0.bottom" timestamp="1601897505384">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -190,10 +190,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="568" height="624" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1603106149982" />
-    <state x="93" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1603108068700">
+    <state x="93" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1603108734619">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603108068700" />
+    <state x="93" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603108734619" />
     <state x="176" y="278" key="psd.add.library.dependency.panel.dimension" timestamp="1601895234397">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
