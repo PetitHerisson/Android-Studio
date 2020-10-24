@@ -17,9 +17,4 @@
         android:label="Movies"
         tools:layout="@layout/fragment_movies" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.bottomnav.ui.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
