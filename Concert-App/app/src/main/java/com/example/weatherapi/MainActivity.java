@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
     private TextView textViewDescription;
     private TextView textViewLat;
     private TextView textViewLng;
+    private String city;
     private static final String TAG = "Main Activity";
     LocationManager locationManager;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -88,16 +89,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
         imageViewSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                city = editTextSearch.getText().toString();
                 jsonParse();
             }
         });
-        jsonParse();
+        getLocation();
     }
 
     private void jsonParse() {
         String baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
         String apiKey = "&appid=a79ed0c505017f78d706fd5d799643a6";
-        String city = editTextSearch.getText().toString();
+
         String url = baseUrl + city + apiKey;
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -115,9 +117,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
                                     .getJSONObject(0).getString("icon");
                             String iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
 //                            String iconUrl = "https://www.yogajournal.com/.image/t_share/MTUxMDUxNDQ2NDQyMjcyNzA5/fearless.jpg";
-                            String wind = "Wind: " + response.getJSONObject("wind").getString("speed");
-                            String humidity = "Humidity: " + response.getJSONObject("main").getString("humidity");
-                            String pressure = "Pressure: " + response.getJSONObject("main").getString("pressure");
+                            String wind = "Wind: " + response.getJSONObject("wind").getString("speed") + "km/h";
+                            String humidity = "Humidity: " + response.getJSONObject("main").getString("humidity") + "%";
+                            String pressure = "Pressure: " + response.getJSONObject("main").getString("pressure") + "Pa";
                             String extra = wind + "\n" + humidity + "\n" + pressure;
                             int temp = (int) (Double.parseDouble(response.getJSONObject("main").getString("temp")) - 273.15);
                             Picasso.get().load(iconUrl).into(imageViewIcon);
@@ -166,11 +168,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
             Geocoder geocoder= new Geocoder(this, Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1);
-            String lat = String.valueOf(location.getLatitude());
-            String lng = String.valueOf(location.getLongitude());
+
+            @SuppressLint("DefaultLocale")
+            String lat = String.format("%.2f", location.getLatitude());
+            @SuppressLint("DefaultLocale")
+            String lng = String.format("%.2f", location.getLongitude());
             textViewLat.setText(lat);
             textViewLng.setText(lng);
             coordinates = lat + "/" + lng;
+
+            city = addresses.get(0).getLocality();
+            Log.d(TAG, city);
+            jsonParse();
         }
         catch (Exception e){
             e.printStackTrace();
