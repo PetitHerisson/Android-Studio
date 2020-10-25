@@ -24,10 +24,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_map);
 
         Intent intent = getIntent();
-//        String coordinates = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-//        String[] geocod = coordinates.split("/");
-//        lat = Double.parseDouble(geocod[0]);
-//        lng = Double.parseDouble(geocod[1]);
+        String coordinates = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String[] geocod = coordinates.split("/");
+        lat = Double.parseDouble(geocod[0]);
+        lng = Double.parseDouble(geocod[1]);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.google_map);
@@ -36,7 +36,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng latlng = new LatLng(-36.848461, 174.763336);
+        LatLng latlng = new LatLng(lat, lng);
         googleMap.addMarker(new MarkerOptions()
                 .position(latlng));
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latlng));
