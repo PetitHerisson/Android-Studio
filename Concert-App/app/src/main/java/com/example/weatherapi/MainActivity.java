@@ -1,4 +1,4 @@
-package com.example.concertapp;
+package com.example.weatherapi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +19,8 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static java.lang.Math.round;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,14 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewLat;
     private TextView textViewLng;
     private static final String TAG = "Main Activity";
-    private TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mQueue = Volley.newRequestQueue(this);
-        test = new TextView(this);
 
         imageViewIcon = findViewById(R.id.imageViewIcon);
         textViewTemperature = findViewById(R.id.textViewTemperature);
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 jsonParse();
             }
         });
+        jsonParse();
     }
 
     private void jsonParse() {
@@ -86,13 +86,13 @@ public class MainActivity extends AppCompatActivity {
                             String humidity = "Humidity: " + response.getJSONObject("main").getString("humidity");
                             String pressure = "Pressure: " + response.getJSONObject("main").getString("pressure");
                             String extra = wind + "\n" + humidity + "\n" + pressure;
-                            Double temp = Double.parseDouble(response.getJSONObject("main").getString("temp")) - 273.15;
+                            int temp = (int)(Double.parseDouble(response.getJSONObject("main").getString("temp")) - 273.15);
                             Picasso.get().load(iconUrl).into(imageViewIcon);
                             Log.d(TAG, iconUrl);
 
                             textViewDescription.setText(description);
                             textViewExtra.setText(extra);
-                            textViewTemperature.setText(temp.toString());
+                            textViewTemperature.setText(String.valueOf(temp));
                             textViewLat.setText(lat);
                             textViewLng.setText(lng);
                         } catch (JSONException e) {

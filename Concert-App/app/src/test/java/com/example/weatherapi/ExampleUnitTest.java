@@ -1,4 +1,4 @@
-package com.example.concertapp;
+package com.example.weatherapi;
 
 import org.junit.Test;
 
