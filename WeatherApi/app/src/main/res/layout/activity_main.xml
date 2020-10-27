@@ -49,8 +49,8 @@
 
     <TextView
         android:id="@+id/textViewTemperature"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
+        android:layout_width="79dp"
+        android:layout_height="81dp"
         android:gravity="right"
         android:text="19"
         android:textSize="60sp"
@@ -69,8 +69,8 @@
 
     <TextView
         android:id="@+id/textViewExtra"
-        android:layout_width="169dp"
-        android:layout_height="74dp"
+        android:layout_width="176dp"
+        android:layout_height="93dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="16dp"
@@ -83,7 +83,7 @@
         android:id="@+id/textViewDescription"
         android:layout_width="0dp"
         android:layout_height="34dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
         android:gravity="center_horizontal"
         android:text="light intensity drizzle"
         android:textSize="24sp"
@@ -134,8 +134,8 @@
 
     <ImageView
         android:id="@+id/imageViewIcon"
-        android:layout_width="41dp"
-        android:layout_height="74dp"
+        android:layout_width="20dp"
+        android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="28dp"
